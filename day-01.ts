@@ -58,13 +58,13 @@ function ptB(ti: string) {
   return res;
 }
 
-function main() {
+(function main() {
   console.log(ptA(testInput));
   console.log(ptB(testInput));
-  Deno.readTextFile("./day-01-a.txt").then((r) => {
+  Deno.readTextFile("./day-01.txt").then((r) => {
     const resA = ptA(r);
     console.log(resA);
     const resB = ptB(r);
     console.log(resB);
   });
-}
+})();
