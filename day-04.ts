@@ -40,23 +40,17 @@ function parseDosDonts(inp: string): string[] {
     .concat(dontIndices.map((d) => ({ t: "dont", idx: d })))
     .toSorted((a, b) => a.idx - b.idx) as Array<Window>;
   let isDoing = true;
-  let buffer = "";
   let marker = 0;
   const candidates = [];
   for (const w of windows) {
-    buffer = inp.slice(marker, w.idx);
     if (isDoing && w.t === "dont") {
-      candidates.push(buffer);
-      buffer = "";
+      candidates.push(inp.slice(marker, w.idx));
       marker = w.idx + 4;
-
       isDoing = false;
       continue;
     }
-
     if (!isDoing && w.t === "do") {
       isDoing = true;
-      buffer = "";
       marker = w.idx + 2;
       continue;
     }
