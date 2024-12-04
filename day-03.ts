@@ -63,8 +63,8 @@ function parseDosDonts(inp: string): string[] {
 
 (async function main() {
   console.log(ptA(testInput));
-  const res = await Deno.readTextFile("./day-04.txt").then(ptA);
+  const res = await Deno.readTextFile("./day-03.txt").then(ptA);
   console.log(ptB(testInputB));
-  const resB = await Deno.readTextFile("./day-04.txt").then(ptB);
+  const resB = await Deno.readTextFile("./day-03.txt").then(ptB);
   console.log(resB);
 })();
